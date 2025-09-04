@@ -1,0 +1,66 @@
+GIT COMMANDS
+
+
+git config --global user.name
+git config --global core.editor "code --wait" #setup vs code as default editor
+git config --global -e
+git config --global core.autocrlf  #carriage return command
+
+mkdir Moon
+cd Moon
+git init 
+
+ls -a #lists all files in directory
+open .git
+
+rm -rf .git #remove
+
+git commit -m "initial commit"
+git add file1    #add/stage changes
+git commit -m "Fixed the bug that.."
+git commit -m "Removed unused code"  
+
+echo hello > file1.txt #adds text to file1
+
+git status #view status
+
+git add*.txt #add files in repo
+git status (if it shows green then it is in staging area)
+
+echo world >> file1.txt (commit made but not added,it shows red. run add for it to show green again)
+ 
+git commit -m "Initial commit."
+git commit
+
+mv file1.txt main.js #to rename files
+
+mkdir logs #create folder
+echo hello > logs/dev.log
+
+.gitignore 
+
+echo logs/ > .gitignore #create gitignore
+code .gitignore #opens log in vscode
+
+git ls-files #show files in a staging area
+git rm -h #remove files in a staging area
+git rm --cached -r bin/
+
+git status -s #show changes in simplified form
+git diff --staged #to see changes in staging area line by line
+
+git config --global diff.tool vscode
+git config --global difftool.vscode.cmd "code --wait --diff" $LOCAL $REMOTE
+git config --global -e #edit global config in vs code
+git difftool
+git difftool --staged
+
+git log #view all commit
+git log --oneline --reverse
+
+git show HEAD~1:.gitignore
+git ls-tree HEAD~1 #directory is represented using tree
+
+git restore --staeged file1.js 
+git restore . #restore all tracked changes
+git  clean -fd
